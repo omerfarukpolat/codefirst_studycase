@@ -5,6 +5,7 @@ import React from 'react';
 import { Box, Divider, Grid2, Paper, Rating, Typography } from '@mui/material';
 import { Movie, MovieDetails } from '@store/types/Movie.types';
 
+import ErrorState from '@components/ErrorState';
 import GenreChip from '@components/GenreChip';
 import MovieDetailsSkeleton from '@components/MovieDetailsSkeleton';
 import MovieMetadata from '@components/MovieMetadata';
@@ -15,11 +16,13 @@ type MovieDetailsPageProps = {
   movie: MovieDetails | null;
   loading: boolean;
   selectedMovie: Movie | null;
+  error?: boolean;
 };
 const MovieDetailsPageComponent = ({
   movie,
   loading,
   selectedMovie,
+  error,
 }: MovieDetailsPageProps): React.JSX.Element => {
   if (loading) {
     return <MovieDetailsSkeleton />;
@@ -35,11 +38,12 @@ const MovieDetailsPageComponent = ({
     );
   }
 
-  if (!movie) {
+  if (!movie || error) {
     return (
-      <Box className="movie-details-error">
-        <Typography variant="h5">Movie details could not be loaded</Typography>
-      </Box>
+      <ErrorState
+        title="Failed to Load Movie"
+        message="We couldn't load the movie details. Please try again later."
+      />
     );
   }
 

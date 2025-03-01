@@ -14,15 +14,21 @@ export const MovieDetailsPageContainer = (): React.JSX.Element => {
   const selectedMovie = useSelector(
     (state: RootState) => state.movies.selectedMovie
   );
+  const [error, setError] = useState<boolean>(false);
   const navigate = useNavigate();
 
   useEffect(() => {
     const fetchMovieDetails = async (): Promise<void> => {
       setLoading(true);
       if (selectedMovie) {
-        const details = await getMovieDetails(selectedMovie.imdbID);
-        setMovie(details);
-        setLoading(false);
+        try {
+          const details = await getMovieDetails(selectedMovie.imdbID);
+          setMovie(details);
+          setLoading(false);
+        } catch {
+          setError(true);
+          setLoading(false);
+        }
       } else {
         navigate('/');
       }
@@ -32,6 +38,7 @@ export const MovieDetailsPageContainer = (): React.JSX.Element => {
 
   return (
     <MovieDetailsPageComponent
+      error={error}
       movie={movie}
       loading={loading}
       selectedMovie={selectedMovie}

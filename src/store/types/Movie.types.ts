@@ -1,7 +1,9 @@
+export type TypeFilter = 'movie' | 'series' | 'episode' | '';
+
 export interface MoviesState {
   searchQuery: string;
   yearFilter: string;
-  typeFilter: 'movie' | 'series' | 'episode' | '';
+  typeFilter: TypeFilter;
   movies: Movie[];
   totalResults: number;
   selectedMovie: Movie | null;

@@ -3,6 +3,7 @@ import React, { useEffect, useRef } from 'react';
 import { searchMovies } from '@services/omdbService';
 import {
   setMovies,
+  setSearchQuery,
   setSelectedMovie,
   setTypeFilter,
   setYearFilter,
@@ -22,6 +23,7 @@ export const HomePageContainer = (): React.JSX.Element => {
 
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
+  const [error, setError] = React.useState(false);
 
   const isFetching = useRef(false);
 
@@ -50,7 +52,7 @@ export const HomePageContainer = (): React.JSX.Element => {
         })
       );
     } catch {
-      // DO NOTHING
+      setError(true);
     }
   };
 
@@ -68,21 +70,20 @@ export const HomePageContainer = (): React.JSX.Element => {
   };
 
   const handleSearchByNameChange = (searchQuery: string): void => {
-    dispatch(setYearFilter(searchQuery));
+    dispatch(setSearchQuery(searchQuery));
   };
 
   const handleYearFilterChange = (yearFilter: string): void => {
     dispatch(setYearFilter(yearFilter));
   };
 
-  const handleTypeFilterChange = (
-    typeFilter: 'movie' | 'series' | 'episode' | ''
-  ): void => {
+  const handleTypeFilterChange = (typeFilter: TypeFilter): void => {
     dispatch(setTypeFilter(typeFilter));
   };
 
   return (
     <HomePageComponent
+      error={error}
       searchQuery={searchQuery}
       yearFilter={yearFilter}
       typeFilter={typeFilter}

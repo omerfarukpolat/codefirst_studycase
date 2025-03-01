@@ -21,10 +21,7 @@ const moviesSlice = createSlice({
     setYearFilter(state, action: PayloadAction<string>) {
       state.yearFilter = action.payload;
     },
-    setTypeFilter(
-      state,
-      action: PayloadAction<'movie' | 'series' | 'episode' | ''>
-    ) {
+    setTypeFilter(state, action: PayloadAction<TypeFilter>) {
       state.typeFilter = action.payload;
     },
     setMovies(

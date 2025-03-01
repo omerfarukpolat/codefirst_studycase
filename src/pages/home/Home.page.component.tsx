@@ -22,12 +22,15 @@ import {
 import Grid2 from '@mui/material/Grid2';
 import { Movie } from '@store/types/Movie.types';
 
+import ErrorState from '@components/ErrorState';
+
 import '@styles/customStyles.scss';
 
 type HomePageProps = {
+  error?: boolean;
   searchQuery: string;
   yearFilter: string;
-  typeFilter: 'movie' | 'series' | 'episode' | '';
+  typeFilter: TypeFilter;
   movies: Movie[];
   totalResults: number;
   rowsPerPage: number;
@@ -36,12 +39,13 @@ type HomePageProps = {
   setPage: (page: number) => void;
   onSearchByNameChange: (e: string) => void;
   onYearFilterChange: (e: string) => void;
-  onTypeFilterChange: (e: 'movie' | 'series' | 'episode' | '') => void;
+  onTypeFilterChange: (e: TypeFilter) => void;
   onMovieClick: (imdbID: string) => void;
   onSearch: () => void;
 };
 
 const HomePageComponent = ({
+  error,
   searchQuery,
   yearFilter,
   typeFilter,
@@ -57,6 +61,15 @@ const HomePageComponent = ({
   onMovieClick,
   onSearch,
 }: HomePageProps): React.JSX.Element => {
+  if (error) {
+    return (
+      <ErrorState
+        title="Failed to Load Movies"
+        message="We couldn't load the movies. Please try again later."
+        isButtonVisible={false}
+      />
+    );
+  }
   return (
     <Box sx={{ width: '95%', p: 3 }}>
       <Typography variant="h4" gutterBottom>
@@ -84,11 +97,7 @@ const HomePageComponent = ({
             <InputLabel>Type</InputLabel>
             <Select
               value={typeFilter}
-              onChange={(e) =>
-                onTypeFilterChange(
-                  e.target.value as 'movie' | 'series' | 'episode' | ''
-                )
-              }
+              onChange={(e) => onTypeFilterChange(e.target.value as TypeFilter)}
               label="Type"
               variant={'outlined'}
             >
