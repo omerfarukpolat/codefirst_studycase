@@ -1,0 +1,304 @@
+.table-container {
+  margin-top: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow-x: auto; // Yatay kaydırma için
+}
+
+.movie-poster {
+  width: 50px;
+  height: auto;
+  border-radius: 4px;
+}
+
+.search-box {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.pagination {
+  margin-top: 20px;
+}
+
+// Movie Details Page Styles
+.movie-details-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px 32px;
+}
+
+.movie-details-hero {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 24px;
+  color: white;
+  min-height: 400px;
+}
+
+.movie-details-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-size: cover;
+  background-position: center;
+  filter: blur(2px);
+  transform: scale(1.05);
+}
+
+.movie-details-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.9) 20%, rgba(0, 0, 0, 0.6) 80%);
+}
+
+.movie-details-content {
+  position: relative;
+  z-index: 1;
+  padding: 32px;
+}
+
+.movie-details-poster-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.movie-details-poster {
+  max-width: 300px;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.movie-details-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 16px;
+}
+
+.movie-details-title {
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.movie-details-subtitle {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.movie-details-genres {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.movie-genre-chip {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  font-weight: 500;
+}
+
+.movie-details-rating {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.movie-details-paper {
+  padding: 48px;
+  border-radius: 8px;
+}
+
+.section-title {
+  margin-bottom: 20px;
+  font-weight: 600;
+  position: relative;
+  padding-bottom: 16px;
+
+  &::after {
+    content: '';
+    margin-bottom: 8px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background-color: #f50057;
+    border-radius: 2px;
+  }
+}
+
+.movie-plot {
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+
+.movie-metadata {
+  margin-bottom: 16px;
+}
+
+.metadata-title {
+  font-weight: 600;
+  color: #757575;
+}
+
+.metadata-content {
+  margin-top: 4px;
+}
+
+.movie-ratings-container {
+  width: 100%;
+}
+
+.movie-ratings-grid {
+  margin-top: 16px;
+}
+
+.rating-card {
+  padding: 16px;
+  text-align: center;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.2s ease-in-out;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  }
+}
+
+// Skeleton styles
+.skeleton-hero {
+  background-color: #303030;
+}
+
+.skeleton-poster {
+  height: 450px;
+}
+
+// Error state
+.movie-details-error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+  text-align: center;
+}
+
+.movie-ratings-Grid2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: 20px;
+  margin-top: 24px;
+}
+
+// Responsive styles
+@media (max-width: 960px) {
+  .movie-details-hero {
+    min-height: auto;
+  }
+
+  .movie-details-poster {
+    max-width: 250px;
+  }
+}
+
+@media (max-width: 600px) {
+  .table-container {
+    margin-top: 10px;
+  }
+
+  .movie-poster {
+    width: 30px;
+  }
+
+  .search-box {
+    flex-direction: column;
+  }
+
+  .table-container table thead {
+    display: none;
+  }
+
+  .table-container table tbody tr {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+  }
+
+  .table-container table tbody td {
+    display: block;
+    text-align: right;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .table-container table tbody td::before {
+    content: attr(data-label); // Hücre başlıklarını ekle
+    float: left;
+    font-weight: bold;
+  }
+
+  .pagination {
+    padding: 8px;
+  }
+
+  .pagination .MuiTablePagination-toolbar {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  // Movie details responsive styles
+  .movie-details-content {
+    padding: 16px;
+  }
+
+  .movie-details-poster-container {
+    margin-bottom: 16px;
+  }
+
+  .movie-details-poster {
+    max-width: 200px;
+  }
+
+  .movie-details-title {
+    font-size: 1.75rem;
+  }
+}
+
+.fixed-width-poster {
+  width: 100px;
+}
+
+.fixed-width-title {
+  width: 300px;
+}
+
+.fixed-width-release-date {
+  width: 150px;
+}
+
+.fixed-width-imdb-id {
+  width: 150px;
+}
+
+.fixed-width-type {
+  width: 100px;
+}
+

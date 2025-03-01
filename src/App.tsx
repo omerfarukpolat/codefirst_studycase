@@ -1,21 +1,29 @@
 import React from 'react';
 
-import { ThemeProvider } from '@mui/material/styles';
+import { ThemeProvider } from '@mui/material';
+import { store } from '@store/store';
 import { Provider } from 'react-redux';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
-import Home from './pages/Home';
+import { HomePageContainer } from '@pages/home/Home.page.container';
+import { MovieDetailsPageContainer } from '@pages/movie-details/MovieDetails.page.container';
 
-import { store } from './store/store';
 import theme from './theme/theme';
 
-import './App.css';
-
-export const App: React.FC = () => {
+const App: React.FC = () => {
   return (
     <ThemeProvider theme={theme}>
       <Provider store={store}>
         <div className="App">
-          <Home />
+          <Router>
+            <Routes>
+              <Route path="/" element={<HomePageContainer />} />
+              <Route
+                path="/movie/:imdbID"
+                element={<MovieDetailsPageContainer />}
+              />
+            </Routes>
+          </Router>
         </div>
       </Provider>
     </ThemeProvider>

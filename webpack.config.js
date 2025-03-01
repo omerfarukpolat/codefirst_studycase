@@ -8,9 +8,17 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
+    publicPath: '/',
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx'],
+    alias: {
+      '@components': path.resolve(__dirname, 'src/components'),
+      '@pages': path.resolve(__dirname, 'src/pages'),
+      '@services': path.resolve(__dirname, 'src/services'),
+      '@store': path.resolve(__dirname, 'src/store'),
+      '@styles': path.resolve(__dirname, 'src/styles'),
+    },
   },
   module: {
     rules: [
@@ -27,6 +35,10 @@ module.exports = {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
         type: 'asset/resource',
       },
+      {
+        test: /\.scss$/,
+        use: ['style-loader', 'css-loader', 'sass-loader'],
+      },
     ],
   },
   plugins: [
@@ -38,5 +50,7 @@ module.exports = {
     static: path.join(__dirname, 'dist'),
     compress: true,
     port: 3000,
+    historyApiFallback: true, // Enable client-side routing
+    hot: true, // Enable Hot Module Replacement (HMR)
   },
 };
