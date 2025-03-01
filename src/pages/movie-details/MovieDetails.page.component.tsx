@@ -5,10 +5,10 @@ import React from 'react';
 import { Box, Divider, Grid2, Paper, Rating, Typography } from '@mui/material';
 import { Movie, MovieDetails } from '@store/types/Movie.types';
 
-import ErrorState from '@components/ErrorState';
-import GenreChip from '@components/GenreChip';
-import MovieDetailsSkeleton from '@components/MovieDetailsSkeleton';
-import MovieMetadata from '@components/MovieMetadata';
+import ErrorStateComponent from '@components/ErrorState.component';
+import GenreChipComponent from '@components/GenreChip.component';
+import MovieDetailsSkeletonComponent from '@components/MovieDetailsSkeleton.component';
+import MovieMetadataComponent from '@components/MovieMetadata.component';
 
 import '@styles/customStyles.scss';
 
@@ -25,7 +25,7 @@ const MovieDetailsPageComponent = ({
   error,
 }: MovieDetailsPageProps): React.JSX.Element => {
   if (loading) {
-    return <MovieDetailsSkeleton />;
+    return <MovieDetailsSkeletonComponent />;
   }
 
   if (!selectedMovie) {
@@ -40,7 +40,7 @@ const MovieDetailsPageComponent = ({
 
   if (!movie || error) {
     return (
-      <ErrorState
+      <ErrorStateComponent
         title="Failed to Load Movie"
         message="We couldn't load the movie details. Please try again later."
       />
@@ -82,7 +82,7 @@ const MovieDetailsPageComponent = ({
             </Box>
             <Box className="movie-details-genres">
               {movie.Genre.split(', ').map((genre) => (
-                <GenreChip key={genre} genre={genre} />
+                <GenreChipComponent key={genre} genre={genre} />
               ))}
             </Box>
             <Box className="movie-details-rating">
@@ -111,31 +111,37 @@ const MovieDetailsPageComponent = ({
 
           <Grid2>
             <Box sx={{ mb: 3 }}>
-              <MovieMetadata title="Director" content={movie.Director} />
+              <MovieMetadataComponent
+                title="Director"
+                content={movie.Director}
+              />
             </Box>
             <Box sx={{ mb: 3 }}>
-              <MovieMetadata title="Writers" content={movie.Writer} />
+              <MovieMetadataComponent title="Writers" content={movie.Writer} />
             </Box>
             <Box sx={{ mb: 3 }}>
-              <MovieMetadata title="Cast" content={movie.Actors} />
+              <MovieMetadataComponent title="Cast" content={movie.Actors} />
             </Box>
           </Grid2>
 
           <Grid2>
             <Box sx={{ mb: 3 }}>
-              <MovieMetadata title="Released" content={movie.Released} />
+              <MovieMetadataComponent
+                title="Released"
+                content={movie.Released}
+              />
             </Box>
             <Box sx={{ mb: 3 }}>
-              <MovieMetadata
+              <MovieMetadataComponent
                 title="Box Office"
                 content={movie.BoxOffice || 'N/A'}
               />
             </Box>
             <Box sx={{ mb: 3 }}>
-              <MovieMetadata title="Awards" content={movie.Awards} />
+              <MovieMetadataComponent title="Awards" content={movie.Awards} />
             </Box>
             <Box sx={{ mb: 3 }}>
-              <MovieMetadata
+              <MovieMetadataComponent
                 title="Production"
                 content={movie.Production || 'N/A'}
               />

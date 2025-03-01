@@ -7,7 +7,10 @@ interface MovieMetadataProps {
   content: string;
 }
 
-const MovieMetadata: React.FC<MovieMetadataProps> = ({ title, content }) => {
+const MovieMetadataComponent: React.FC<MovieMetadataProps> = ({
+  title,
+  content,
+}) => {
   return (
     <Box className="movie-metadata">
       <Typography variant="subtitle1" className="metadata-title" gutterBottom>
@@ -28,4 +31,4 @@ const MovieMetadata: React.FC<MovieMetadataProps> = ({ title, content }) => {
   );
 };
 
-export default MovieMetadata;
+export default MovieMetadataComponent;

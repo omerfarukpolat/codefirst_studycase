@@ -10,7 +10,7 @@ interface ErrorStateProps {
   isButtonVisible?: boolean;
 }
 
-const ErrorState: React.FC<ErrorStateProps> = ({
+const ErrorStateComponent: React.FC<ErrorStateProps> = ({
   title,
   message = "We're having trouble loading this content. Please try again.",
   isButtonVisible = true,
@@ -31,7 +31,7 @@ const ErrorState: React.FC<ErrorStateProps> = ({
           <Button
             variant="contained"
             startIcon={<ArrowLeft />}
-            onClick={() => navigate('/')}
+            onClick={() => navigate(-1)}
             className="go-back-button"
           >
             Go Back
@@ -42,4 +42,4 @@ const ErrorState: React.FC<ErrorStateProps> = ({
   );
 };
 
-export default ErrorState;
+export default ErrorStateComponent;

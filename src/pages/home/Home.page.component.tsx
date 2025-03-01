@@ -22,7 +22,7 @@ import {
 import Grid2 from '@mui/material/Grid2';
 import { Movie } from '@store/types/Movie.types';
 
-import ErrorState from '@components/ErrorState';
+import ErrorStateComponent from '@components/ErrorState.component';
 
 import '@styles/customStyles.scss';
 
@@ -63,7 +63,7 @@ const HomePageComponent = ({
 }: HomePageProps): React.JSX.Element => {
   if (error) {
     return (
-      <ErrorState
+      <ErrorStateComponent
         title="Failed to Load Movies"
         message="We couldn't load the movies. Please try again later."
         isButtonVisible={false}

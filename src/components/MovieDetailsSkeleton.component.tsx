@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Box, Grid2, Paper, Skeleton } from '@mui/material';
 
-const MovieDetailsSkeleton: React.FC = () => {
+const MovieDetailsSkeletonComponent: React.FC = () => {
   return (
     <Box className="movie-details-container">
       <div className="movie-details-hero skeleton-hero">
@@ -82,4 +82,4 @@ const MovieDetailsSkeleton: React.FC = () => {
   );
 };
 
-export default MovieDetailsSkeleton;
+export default MovieDetailsSkeletonComponent;

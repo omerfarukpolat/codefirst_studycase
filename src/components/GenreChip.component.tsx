@@ -6,7 +6,7 @@ interface GenreChipProps extends Omit<ChipProps, 'label'> {
   genre: string;
 }
 
-const GenreChip: React.FC<GenreChipProps> = ({ genre, ...props }) => {
+const GenreChipComponent: React.FC<GenreChipProps> = ({ genre, ...props }) => {
   return (
     <Chip
       label={genre}
@@ -24,4 +24,4 @@ const GenreChip: React.FC<GenreChipProps> = ({ genre, ...props }) => {
   );
 };
 
-export default GenreChip;
+export default GenreChipComponent;
