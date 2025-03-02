@@ -20,7 +20,7 @@ import {
   Typography,
 } from '@mui/material';
 import Grid2 from '@mui/material/Grid2';
-import { Movie } from '@store/types/Movie.types';
+import { Movie, TypeFilter } from '@store/types/Movie.types';
 
 import ErrorStateComponent from '@components/ErrorState.component';
 
@@ -71,11 +71,11 @@ const HomePageComponent = ({
     );
   }
   return (
-    <Box sx={{ width: '95%', p: 3 }}>
+    <Box className={'home-container'}>
       <Typography variant="h4" gutterBottom>
         Movie Search
       </Typography>
-      <Grid2 container spacing={2} sx={{ mb: 3 }}>
+      <Grid2 container spacing={2} className={'filter-area'}>
         <Grid2 size={4}>
           <TextField
             label="Search by name"
@@ -108,7 +108,7 @@ const HomePageComponent = ({
             </Select>
           </FormControl>
         </Grid2>
-        <Grid2 size={1} sx={{ display: 'flex', justifyContent: 'center' }}>
+        <Grid2 size={1} className={'search-icon'}>
           <IconButton onClick={onSearch} color="primary">
             <SearchIcon />
           </IconButton>
@@ -134,7 +134,7 @@ const HomePageComponent = ({
                   key={movie.imdbID}
                   hover
                   onClick={() => onMovieClick(movie.imdbID)}
-                  sx={{ cursor: 'pointer' }}
+                  className={'table-row'}
                 >
                   <TableCell className="fixed-width-poster">
                     <img

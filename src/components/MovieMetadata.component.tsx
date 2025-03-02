@@ -16,15 +16,7 @@ const MovieMetadataComponent: React.FC<MovieMetadataProps> = ({
       <Typography variant="subtitle1" className="metadata-title" gutterBottom>
         {title}
       </Typography>
-      <Typography
-        variant="body1"
-        className="metadata-content"
-        sx={{
-          overflowWrap: 'break-word',
-          wordWrap: 'break-word',
-          marginTop: '0.5rem',
-        }}
-      >
+      <Typography variant="body1" className="metadata-content">
         {content}
       </Typography>
     </Box>

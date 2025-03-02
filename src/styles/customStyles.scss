@@ -24,7 +24,7 @@
 // Movie Details Page Styles
 .movie-details-container {
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 20px auto;
   padding: 0 16px 32px;
 }
 
@@ -107,11 +107,15 @@
   margin-bottom: 24px;
 }
 
-.movie-genre-chip {
+.movie-genre-chip.movie-genre-chip {
+  font-weight: 600;
   background-color: rgba(255, 255, 255, 0.9);
   color: rgba(0, 0, 0, 0.87);
-  font-weight: 600;
-  padding: 4px 12px;
+  transition: background-color 0.2s ease-in-out;
+  cursor: pointer;
+  &:hover {
+    background-color: rgba(255, 255, 255, 1);
+  }
 }
 
 .movie-details-rating {
@@ -143,6 +147,11 @@
   }
 }
 
+.skeleton {
+  border-radius: 16px;
+  margin-right: 1px;
+}
+
 .movie-plot {
   line-height: 1.8;
   margin-bottom: 24px;
@@ -161,10 +170,11 @@
   display: block;
 }
 
-.metadata-content {
+.metadata-content.metadata-content {
   margin-top: 8px;
   line-height: 1.6;
   word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .movie-ratings-container {
@@ -174,6 +184,28 @@
 
 .movie-ratings-grid {
   margin-top: 24px;
+}
+
+.metadata-box {
+  margin-bottom: 3px;
+}
+
+.home-container {
+  padding: 3rem;
+  width: 95%;
+}
+
+.filter-area {
+  margin-bottom: 3rem;
+}
+
+.search-icon {
+  display: flex;
+  justify-content: center;
+}
+
+.table-row {
+  cursor: pointer;
 }
 
 .rating-card {
@@ -203,6 +235,11 @@
 
 .skeleton-poster {
   height: 450px;
+}
+
+.movie-ratings-Grid2.movie-ratings-Grid2 {
+  margin-top: 12px;
+  margin-bottom: 32px;
 }
 
 // Error state

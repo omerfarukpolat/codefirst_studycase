@@ -110,37 +110,37 @@ const MovieDetailsPageComponent = ({
           </Grid2>
 
           <Grid2>
-            <Box sx={{ mb: 3 }}>
+            <Box className="metadata-box">
               <MovieMetadataComponent
                 title="Director"
                 content={movie.Director}
               />
             </Box>
-            <Box sx={{ mb: 3 }}>
+            <Box className="metadata-box">
               <MovieMetadataComponent title="Writers" content={movie.Writer} />
             </Box>
-            <Box sx={{ mb: 3 }}>
+            <Box className="metadata-box">
               <MovieMetadataComponent title="Cast" content={movie.Actors} />
             </Box>
           </Grid2>
 
           <Grid2>
-            <Box sx={{ mb: 3 }}>
+            <Box className="metadata-box">
               <MovieMetadataComponent
                 title="Released"
                 content={movie.Released}
               />
             </Box>
-            <Box sx={{ mb: 3 }}>
+            <Box className="metadata-box">
               <MovieMetadataComponent
                 title="Box Office"
                 content={movie.BoxOffice || 'N/A'}
               />
             </Box>
-            <Box sx={{ mb: 3 }}>
+            <Box className="metadata-box">
               <MovieMetadataComponent title="Awards" content={movie.Awards} />
             </Box>
-            <Box sx={{ mb: 3 }}>
+            <Box className="metadata-box">
               <MovieMetadataComponent
                 title="Production"
                 content={movie.Production || 'N/A'}

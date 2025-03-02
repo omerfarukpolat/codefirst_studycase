@@ -26,19 +26,19 @@ const MovieDetailsSkeletonComponent: React.FC = () => {
                 variant="rectangular"
                 width={80}
                 height={32}
-                sx={{ borderRadius: 16, mr: 1 }}
+                className={'skeleton'}
               />
               <Skeleton
                 variant="rectangular"
                 width={80}
                 height={32}
-                sx={{ borderRadius: 16, mr: 1 }}
+                className={'skeleton'}
               />
               <Skeleton
                 variant="rectangular"
                 width={80}
                 height={32}
-                sx={{ borderRadius: 16 }}
+                className={'skeleton'}
               />
             </Box>
             <Box className="movie-details-rating">

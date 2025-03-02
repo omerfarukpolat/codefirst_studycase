@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { Movie, MoviesState } from '../types/Movie.types';
+import { Movie, MoviesState, TypeFilter } from '../types/Movie.types';
 
 const initialState: MoviesState = {
   searchQuery: 'Pokemon',
